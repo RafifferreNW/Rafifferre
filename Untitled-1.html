@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Keren - Modifikasi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Menggunakan font Inter secara default untuk semua teks di body */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Efek visual ketika tombol kalkulator ditekan */
+        .btn-calc {
+            transition: all 0.1s ease-in-out;
+        }
+        .btn-calc:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        }
+        /* Style kustom untuk tombol operator (biru) */
+        .btn-operator {
+            background-color: #2563eb; /* Biru 600 */
+            color: white;
+        }
+        .btn-operator:hover {
+            background-color: #3b82f6; /* Biru 500 */
+        }
+        .btn-operator:active {
+            background-color: #1d4ed8; /* Biru 700 */
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-slate-800 text-white min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-sm bg-gray-800 rounded-3xl shadow-2xl p-6 space-y-4 border border-blue-500/50">
+        
+        <div class="text-center p-2 bg-blue-900/50 rounded-xl shadow-lg border-b-4 border-blue-500">
+            <h1 class="text-xl font-extrabold text-blue-300">MODIFIKASI KALKULATOR</h1>
+            <p class="text-sm text-white/80 mt-1">Nama: Rafifferre N W</p>
+            <p class="text-sm text-white/80">NIM: 1710624054</p>
+        </div>
+
+        <div>
+            <img id="statusImage" 
+                 src="https://placehold.co/400x100/374151/E5E7EB?text=Kalkulator+Siap" 
+                 alt="Status Kalkulator"
+                 class="w-full rounded-lg transition-all duration-300 ease-in-out shadow-inner border border-gray-700">
+        </div>
+
+        <div class="bg-gray-900 rounded-xl p-4 shadow-inner border border-gray-700">
+            <input type="text" id="display" 
+                   class="w-full bg-transparent text-right text-5xl font-mono text-lime-400 border-0 outline-none p-2 focus:ring-0" 
+                   readonly 
+                   placeholder="0">
+        </div>
+
+        <div class="grid grid-cols-4 gap-3">
+            <button data-value="C" class="btn-calc text-2xl font-bold bg-red-600 hover:bg-red-500 rounded-xl p-5 shadow-md text-white border-b-4 border-red-700">C</button>
+            <button data-value="DEL" class="btn-calc text-2xl font-bold bg-gray-600 hover:bg-gray-500 rounded-xl p-5 shadow-md text-white border-b-4 border-gray-700">DEL</button>
+            <button data-value="%" class="btn-calc text-2xl font-bold bg-gray-600 hover:bg-gray-500 rounded-xl p-5 shadow-md text-white border-b-4 border-gray-700">%</button>
+            <button data-value="/" class="btn-calc btn-operator text-2xl font-bold rounded-xl p-5 shadow-md border-b-4 border-blue-700">/</button>
+
+            <button data-value="7" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-xl p-5 shadow-md text-white border-b-4 border-gray-800">7</button>
+            <button data-value="8" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-xl p-5 shadow-md text-white border-b-4 border-gray-800">8</button>
+            <button data-value="9" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-xl p-5 shadow-md text-white border-b-4 border-gray-800">9</button>
+            <button data-value="*" class="btn-calc btn-operator text-2xl font-bold rounded-xl p-5 shadow-md border-b-4 border-blue-700">*</button>
+
+            <button data-value="4" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-xl p-5 shadow-md text-white border-b-4 border-gray-800">4</button>
+            <button data-value="5" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-xl p-5 shadow-md text-white border-b-4 border-gray-800">5</button>
+            <button data-value="6" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-xl p-5 shadow-md text-white border-b-4 border-gray-800">6</button>
+            <button data-value="-" class="btn-calc btn-operator text-2xl font-bold rounded-xl p-5 shadow-md border-b-4 border-blue-700">-</button>
+
+            <button data-value="1" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-xl p-5 shadow-md text-white border-b-4 border-gray-800">1</button>
+            <button data-value="2" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-xl p-5 shadow-md text-white border-b-4 border-gray-800">2</button>
+            <button data-value="3" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-xl p-5 shadow-md text-white border-b-4 border-gray-800">3</button>
+            <button data-value="+" class="btn-calc btn-operator text-2xl font-bold rounded-xl p-5 shadow-md border-b-4 border-blue-700">+</button>
+
+            <button data-value="0" class="btn-calc col-span-2 text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-xl p-5 shadow-md text-white border-b-4 border-gray-800">0</button>
+            <button data-value="." class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-xl p-5 shadow-md text-white border-b-4 border-gray-800">.</button>
+            <button data-value="=" class="btn-calc text-2xl font-bold bg-lime-600 hover:bg-lime-500 rounded-xl p-5 shadow-md text-white border-b-4 border-lime-700">=</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Memastikan kode JavaScript hanya berjalan setelah seluruh elemen HTML selesai dimuat.
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Mendapatkan referensi (pointer) ke elemen-elemen kunci pada HTML
+            const display = document.getElementById('display'); // Layar input
+            const statusImage = document.getElementById('statusImage'); // Gambar status
+            const buttons = document.querySelectorAll('.btn-calc'); // Semua tombol kalkulator
+
+            // Mendefinisikan URL untuk berbagai status gambar (normal, sukses, error)
+            const imgNormal = 'https://placehold.co/400x100/374151/E5E7EB?text=Kalkulator+Siap';
+            const imgSuccess = 'https://placehold.co/400x100/16A34A/FFFFFF?text=Sukses!';
+            const imgError = 'https://placehold.co/400x100/DC2626/FFFFFF?text=Error!';
+
+            /**
+              Fungsi untuk mengubah sumber gambar (src) status visual kalkulator berdasarkan kondisinya (normal, success, error)
+             */
+            function changeImage(state) {
+                if (state === 'success') {
+                    statusImage.src = imgSuccess;
+                    statusImage.alt = "Perhitungan Sukses";
+                } else if (state === 'error') {
+                    statusImage.src = imgError;
+                    statusImage.alt = "Error Perhitungan";
+                } else {
+                    // Mengembalikan gambar ke status normal (default)
+                    statusImage.src = imgNormal;
+                    statusImage.alt = "Status Kalkulator";
+                }
+            }
+
+            /**
+              Fungsi untuk mengosongkan layar kalkulator (display) dan mengembalikan status gambar ke 'normal'.
+             */
+            function clearDisplay() {
+                display.value = '';
+                changeImage('normal'); // Memanggil function untuk merubah gambar
+            }
+
+            /**
+              Fungsi untuk menghapus karakter terakhir yang ada pada layar kalkulator.
+             */
+            function deleteLastChar() {
+                // Mengambil nilai display, kemudian memotong satu karakter dari akhir (slice(0, -1)).
+                display.value = display.value.slice(0, -1);
+            }
+
+            /**
+              Fungsi untuk menambahkan nilai (angka atau operator) ke layar kalkulator.
+             */
+            function appendToDisplay(value) {
+                display.value += value;
+            }
+
+            /**
+              Fungsi utama untuk melakukan perhitungan ekspresi matematika yang ada di layar.
+             */
+            function calculateResult() {
+                // Periksa jika layar kosong, tampilkan error dan hapus setelah jeda waktu
+                if (display.value === '') {
+                    changeImage('error');
+                    display.value = 'Kosong!';
+                    // Menunda eksekusi fungsi clearDisplay selama 1.5 detik (1500 ms)
+                    setTimeout(clearDisplay, 1500);
+                    return;
+                }
+
+                try {
+                    // Menggunakan fungsi eval() untuk mengevaluasi ekspresi string matematika.
+                    // Fungsi replace digunakan untuk mengubah simbol '%' menjadi '/100' agar eval() bisa menghitungnya sebagai persen.
+                    let result = eval(display.value
+                        .replace(/%/g, '/100') // Mengganti semua '%' dengan '/100' sebelum dievaluasi
+                    ); 
+                    
+                    // Memeriksa apakah hasil perhitungan adalah angka yang valid (tidak Infinity, NaN, dll.)
+                    if (isFinite(result)) {
+                        display.value = result;
+                        changeImage('success'); // Mengubah status gambar menjadi 'success'
+                    } else {
+                        // Jika hasil tidak valid (misal: pembagian dengan nol), lemparkan error.
+                        throw new Error("Hasil tidak valid");
+                    }
+
+                } catch (error) {
+                    // Menangkap error jika ekspresi matematika tidak valid (misal: '2++')
+                    console.error("Error kalkulasi:", error);
+                    display.value = 'Error';
+                    changeImage('error'); // Mengubah status gambar menjadi 'error'
+                    setTimeout(clearDisplay, 1500);
+                }
+            }
+
+
+            // Melakukan iterasi pada setiap tombol yang memiliki class '.btn-calc'
+            buttons.forEach(button => {
+                // Menambahkan event listener untuk merespons klik pada tombol
+                button.addEventListener('click', () => {
+                    // Mengambil nilai operasi/angka dari atribut 'data-value' tombol yang diklik
+                    const value = button.getAttribute('data-value');
+
+                    // Menganalisis nilai tombol yang diklik dan menentukan fungsi yang akan dijalankan
+                    switch(value) {
+                        case 'C':
+                            // Jika tombol 'C' ditekan, panggil fungsi clearDisplay
+                            clearDisplay();
+                            break;
+                        case 'DEL':
+                            // Jika tombol 'DEL' ditekan, panggil fungsi deleteLastChar
+                            deleteLastChar();
+                            break;
+                        case '=':
+                            // Jika tombol '=' ditekan, panggil fungsi calculateResult
+                            calculateResult();
+                            break;
+                        default:
+                            // Untuk tombol angka, operator, dan titik (default)
+                            // Jika layar sedang menampilkan 'success' atau 'error' dari perhitungan sebelumnya, hapus layar sebelum menambahkan input baru.
+                            if (statusImage.src === imgSuccess || statusImage.src === imgError) {
+                                clearDisplay();
+                            }
+                            appendToDisplay(value);
+                            break;
+                    }
+                });
+            });
+
+            // Menambahkan event listener untuk merespons input dari keyboard
+            document.addEventListener('keydown', (e) => {
+                const key = e.key;
+
+                // Memeriksa apakah tombol yang ditekan adalah angka (0-9), operator, atau titik desimal
+                if (key >= '0' && key <= '9' || key === '.' || key === '+' || key === '-' || key === '*' || key === '/' || key === '%') {
+                    if (statusImage.src === imgSuccess || statusImage.src === imgError) {
+                        clearDisplay();
+                    }
+                    appendToDisplay(key);
+                    // Mencegah aksi default browser (misal: menekan '/' biasanya membuka pencarian cepat)
+                    e.preventDefault();
+                } else if (key === 'Enter' || key === '=') {
+                    // Jika tombol 'Enter' atau '=' ditekan, hitung hasilnya
+                    calculateResult();
+                    e.preventDefault();
+                } else if (key === 'Backspace') {
+                    // Jika tombol 'Backspace' ditekan, hapus karakter terakhir
+                    deleteLastChar();
+                    e.preventDefault();
+                } else if (key === 'Escape' || key.toLowerCase() === 'c') {
+                    // Jika tombol 'Esc' atau 'C' ditekan, bersihkan layar
+                    clearDisplay();
+                    e.preventDefault();
+                }
+            });
+
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
